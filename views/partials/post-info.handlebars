@@ -1,20 +1,25 @@
 <div class="card">
     <header class="card-header">
+        <div class="card-title-name-date">
         <p class="card-header-title">
             {{#if isDashboard}}
-            <a href="/dashboard/edit/{{id}}">
+            <a href="/dashboard/edit/{{id}}" class="post-title">
+                {{capitalize_sentences title}}
+                </a>
             {{else}}
-            <a href="/post/{{id}}">
+
+            <a href="/post/{{id}}" class="post-title">
+                {{capitalize_sentences title}}
+                </a>
             {{/if}}
-            {{capitalize_sentences title}}<br/>
-            by {{capitalize_sentences user.username}}
-            <br/>
-            {{format_date createdAt}}
-        </a>
         </p>
+            <div class="name-date">
+            by {{capitalize_sentences user.username}} on {{format_date createdAt}}
+            </div>
+        </div>
     </header>
     <div class="card-content">
-        <div class="content">
+        <div class="content post-title">
             {{body}}
         </div>
     </div>

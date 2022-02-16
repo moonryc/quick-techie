@@ -2,15 +2,17 @@
     <div class="post-info">
         <div class="card">
             <header class="card-header">
-                <p class="card-header-title">
-                    {{capitalize_sentences postsData.title}}<br/>
-                    by {{capitalize_sentences postsData.user.username}}
-                    <br/>
-                    {{format_date postsData.createdAt}}
-                </p>
+                <div class="card-title-name-date">
+                    <p class="card-header-title">
+                        {{capitalize_sentences postsData.title}}
+                    </p>
+                    <div class="name-date">
+                        by {{capitalize_sentences postsData.user.username}} on {{format_date postsData.createdAt}}
+                    </div>
+                </div>
             </header>
             <div class="card-content">
-                <div class="content">
+                <div class="content post-text">
                     {{postsData.body}}
                 </div>
             </div>
