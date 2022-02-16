@@ -1,0 +1,31 @@
+body{
+    background-color: #519b6b;
+    min-height: 100vh;
+}
+
+.navbar{
+    background-color: #c0a061 !important;
+    margin-bottom: 5vh;
+}
+
+
+.flex-container{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.post-info{
+    max-width: 60vw;
+    flex:100%;
+    margin-bottom:50px;
+}
+
+.card{
+    /*background-color: #c0a061 !important;*/
+}
+
+.card-header-title{
+
+}
