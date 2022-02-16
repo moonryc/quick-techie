@@ -22,7 +22,7 @@ router.post('/login', async (req, res) => {
         req.session.save(()=>{
             req.session.user_id = document.id
             req.session.username = document.username
-            req.session.loggedIn = true
+            req.session.isLoggedIn = true
 
             return res.json({
                 user: document,
@@ -37,7 +37,8 @@ router.post('/login', async (req, res) => {
 
 //LOGOUT
 router.post('/logout',(req,res)=>{
-    if(req.session.loggedIn){
+    console.log(req.session)
+    if(req.session.isLoggedIn){
         req.session.destroy(()=>{
             return res.status(204).end();
         })

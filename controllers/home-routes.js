@@ -1,7 +1,8 @@
-const {Post, User} = require("../models");
+const {Post, User,Comment} = require("../models");
 const router = require('express').Router()
+const withAuth = require('../middleware/auth')
 
-
+//HOMEPAGE
 router.get('/',async (req,res)=>{
 
     try{
@@ -14,13 +15,8 @@ router.get('/',async (req,res)=>{
                 }
             }
         )
-
-
         const postsData = posts.map(post=> post.get({plain:true}))
-        console.log(postsData)
-        return res.render('homepage',{postsData})
-
-
+        return res.render('homepage',{postsData, isLoggedIn:req.session.isLoggedIn, userName:req.session.username})
     }catch (e) {
         return res.status(500).json({message:"error",error:e})
     }
@@ -28,30 +24,29 @@ router.get('/',async (req,res)=>{
 
 })
 
+//LOGIN SIGNUP PAGE
 router.get('/login',(req,res)=>{
     res.render('login')
 } )
 
-router.get('/:id',async (req,res)=>{
+//SINGLE POST PAGE
+router.get('/post/:id',async (req,res)=>{
     try{
         const posts = await Post.findOne(
             {
                 where:{
                     id:req.params.id
                 },
-                include:{
+                include:[{
                     model:User,
-                    attributes:['username']
-                }
+                    attributes:['username'],
+                },{
+                    model:Comment,
+                }]
             }
         )
-
-
         const postsData = posts.get({plain:true})
-        console.log(postsData)
-        return res.render('single-post',{postsData})
-
-
+        return res.render('single-post',{postsData, isLoggedIn:req.session.isLoggedIn,userName:req.session.username})
     }catch (e) {
         return res.status(500).json({message:"error",error:e})
     }

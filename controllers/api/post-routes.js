@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {Post, User, Comment} = require('../../models/')
+const withAuth = require('../../middleware/auth')
 
 //GET ALL POSTS
 router.get('/',async (req,res)=>{
@@ -26,7 +27,7 @@ router.get('/',async (req,res)=>{
 })
 
 //GET A POST BY ID
-router.get('/:id',async (req,res)=>{
+router.get('/:id',withAuth,async (req,res)=>{
     try{
         const document = await Post.findOne(
             {
@@ -42,31 +43,26 @@ router.get('/:id',async (req,res)=>{
                 }]
             }
         )
-
         if(!document){
             return res.status(404).json({message:"no post found"})
         }
-
         return res.json(document)
-
     }catch (e) {
         return res.status(500).json({message:"error",error:e})
     }
 })
 
 //CREATE POST
-router.post('/',async (req, res) => {
+router.post('/',withAuth,async (req, res) => {
     // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+    console.log(req.session)
     try{
         const document = await Post.create({
             title: req.body.title,
             body: req.body.body,
             user_id: req.session.user_id
         })
-
-
         return res.json(document)
-
     }catch (e) {
         return res.status(500).json({message:"error",error:e})
     }
