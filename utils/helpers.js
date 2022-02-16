@@ -12,11 +12,11 @@ module.exports = {
         return word;
     },
     capitalize_sentences:(sentence)=>{
-      const arrayOfWords = sentence.split('')
+      const arrayOfWords = sentence.split(' ')
       for(let i = 0; i<arrayOfWords.length;i++){
-          arrayOfWords[i] = arrayOfWords[i].charAt(0).toUpperCase() + arrayOfWords[i].slice(1)
+          arrayOfWords[i] = arrayOfWords[i][0].toUpperCase() + arrayOfWords[i].slice(1)
       }
-      return arrayOfWords.join('')
+      return arrayOfWords.join(' ')
     },
     logger:(object)=>{
         return console.log(object)
