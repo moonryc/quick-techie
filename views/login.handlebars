@@ -1,15 +1,49 @@
+<h3>Login In</h3>
 <form class="login-form">
-    <h3>Login In</h3>
-    <input id="username-login"/>
-    <input id="password-login"/>
-    <button>Login</button>
+    <div class="field">
+        <label class="label" for="username-login">Name</label>
+        <div class="control">
+            <input id="username-login" class="input" type="text" placeholder="Username">
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <label class="label" for="password-login">Name</label>
+            <input id="password-login" class="input" type="text" placeholder="Password">
+        </div>
+    </div>
+    <div class="control">
+        <button class="button is-link">Login</button>
+    </div>
 </form>
 
 
+<h3>Sign Up</h3>
 <form class="signup-form">
-    <h3>Sign Up</h3>
-    <input id="username-signup"/>
-    <input id="email-signup"/>
-    <input id="password-signup"/>
-    <button>Login</button>
+
+
+    <div class="field">
+        <div class="control">
+            <label class="label" for="username-signup">Name</label>
+            <input id="username-signup" class="input" type="text" placeholder="Username">
+        </div>
+    </div>
+    <div class="field">
+        <label class="label" for="password-signup">Name</label>
+        <div class="control">
+            <input id="password-signup" class="input" type="text" placeholder="Password">
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <label for="email-signup" class="label">Name</label>
+            <input id="email-signup" class="input" type="text" placeholder="Email">
+        </div>
+    </div>
+    <div class="control">
+        <button class="button is-link">Signup</button>
+    </div>
 </form>
+
+<script src="/javascript/login.js"></script>
+<script src="/javascript/signup.js"></script>

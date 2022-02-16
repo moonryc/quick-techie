@@ -1,11 +1,25 @@
-<article>
-    <div>
-        {{postsData.title}} by {{postsData.user.username}}
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+                {{postsData.title}}<br/>
+                by {{postsData.user.username}}
+            <br/>
+            {{format_date postsData.createdAt}}
+        </p>
+    </header>
+    <div class="card-content">
+        <div class="content">
+            {{postsData.body}}
+
+        </div>
     </div>
-    <div>
-        {{postsData.createdAt}}
-    </div>
-    <div>
-        {{postsData.body}}
-    </div>
-</article>
+    {{logger postsData}}
+        {{logger postsData.comments}}
+    {{#each postsData.comments as |comment|}}
+        {{> display-comment comment}}
+    {{/each}}
+</div>
+
+{{#if isLoggedIn}}
+    {{> add-comment}}
+{{/if}}

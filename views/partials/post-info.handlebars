@@ -1,14 +1,17 @@
-<article>
-    <div>
-        <a href="/{{id}}">
-        {{title}} by {{user.username}}
-        </a>
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+            <a href="/post/{{id}}">
+                {{capitalize_sentences title}}<br/>
+                by {{user.username}}
+                <br/>
+                {{format_date createdAt}}
+            </a>
+        </p>
+    </header>
+    <div class="card-content">
+        <div class="content">
+            {{body}}
+        </div>
     </div>
-    <div>
-        {{createdAt}}
-    </div>
-
-    <div>
-        {{body}}
-    </div>
-</article>
+</div>

@@ -3,31 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
+          referrerpolicy="no-referrer"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Just Tech News</title>
 </head>
 <body>
 <div>
     <header>
-        <h1>
-            <a href="/">
-                Quick-techie
-            </a>
-        </h1>
-        <nav>
-            {{#if loggedIn}}
-                <a href="/dashboard">{{userName}}</a>
-                <button id="logout">logout</button>
-            {{else}}
-                <a href="/login">login</a>
-            {{/if}}
+
+
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <h1>
+                        Quick-techie
+                    </h1>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                   data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            {{#if isLoggedIn}}
+                                <a class="button is-primary" href="/dashboard">
+                                    <strong>{{userName}}'s Dashboard</strong>
+                                </a>
+                                <a class="button is-light" id="logout">
+                                    Logout
+                                </a>
+                            {{else}}
+                                <a class="button is-primary" href="/dashboard">
+                                    <strong>Dashboard</strong>
+                                </a>
+                                <a class="button is-light" href="/login">
+                                    Login
+                                </a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
-    <main>
-        {{{ body }}}
-    </main>
 </div>
-{{#if loggedIn}}
+<main>
+    {{{ body }}}
+</main>
+{{>modal-notification}}
+
+{{#if isLoggedIn}}
     <script src="/javascript/logout.js"></script>
 {{/if}}
 </body>
