@@ -10,7 +10,7 @@ const path = require('path')
 const expressHandleBars = require('express-handlebars')
 const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
-
+const logger = require('morgan');
 
 
 //extra setups
@@ -41,5 +41,6 @@ app.use(express.static(path.join(__dirname,'public')))
 app.engine('handlebars',handlebars.engine)
 app.set('view engine', 'handlebars')
 app.use(session(sessionSetup))
+app.use(logger('dev'));
 
 app.use(routes)
