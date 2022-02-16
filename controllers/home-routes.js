@@ -4,7 +4,7 @@ const withAuth = require('../middleware/auth')
 
 //HOMEPAGE
 router.get('/',async (req,res)=>{
-
+    console.log(req.session)
     try{
         const posts = await Post.findAll(
             {
@@ -24,10 +24,15 @@ router.get('/',async (req,res)=>{
 
 })
 
-//LOGIN SIGNUP PAGE
+//LOGIN PAGE
 router.get('/login',(req,res)=>{
     res.render('login')
 } )
+
+//SIGNUP PAGE
+router.get('/signup',(req,res)=>{
+    res.render('signup')
+})
 
 //SINGLE POST PAGE
 router.get('/post/:id',async (req,res)=>{
