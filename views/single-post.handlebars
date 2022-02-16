@@ -1,25 +1,30 @@
-<div class="card">
-    <header class="card-header">
-        <p class="card-header-title">
-                {{postsData.title}}<br/>
-                by {{postsData.user.username}}
-            <br/>
-            {{format_date postsData.createdAt}}
-        </p>
-    </header>
-    <div class="card-content">
-        <div class="content">
-            {{postsData.body}}
-
+<div class="flex-container">
+    <div class="post-info">
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    {{capitalize_sentences postsData.title}}<br/>
+                    by {{capitalize_sentences postsData.user.username}}
+                    <br/>
+                    {{format_date postsData.createdAt}}
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    {{postsData.body}}
+                </div>
+            </div>
+            <div class="card-footer"></div>
+            <h3>COMMENTS</h3>
+            {{#if isLoggedIn}}
+                {{> add-comment}}
+            {{/if}}
+            <div class="comments-container">
+                {{#each postsData.comments as |comment|}}
+                    {{logger comment}}
+                    {{> display-comment comment}}
+                {{/each}}
+            </div>
         </div>
     </div>
-    {{logger postsData}}
-        {{logger postsData.comments}}
-    {{#each postsData.comments as |comment|}}
-        {{> display-comment comment}}
-    {{/each}}
 </div>
-
-{{#if isLoggedIn}}
-    {{> add-comment}}
-{{/if}}

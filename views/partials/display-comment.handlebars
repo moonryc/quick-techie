@@ -1,3 +1,6 @@
-<footer class="card-footer">
-    {{comment_text}}
-</footer>
+<div class="comment">
+<div class="card-footer">
+    <p class="comment-username"> {{capitalize_sentences user.username}} </p> <span>&nbsp{{format_date createdAt}}</span>
+</div>
+<p>{{comment_text}}</p>
+</div>
