@@ -3,6 +3,12 @@ body{
     min-height: 100vh;
 }
 
+body> div{
+    position: sticky !important;
+    top:0;
+    z-index: 1;
+}
+
 .navbar{
     background-color: #c0a061 !important;
     margin-bottom: 5vh;
@@ -28,4 +34,48 @@ body{
 
 .card-header-title{
 
+}
+
+.card-footer > p, .card-footer>span{
+    margin-top: 10px;
+}
+
+.comment{
+    margin-bottom: 10px;
+}
+
+.comments-container{
+    word-break: break-all;
+    margin:15px;
+    padding-bottom: 10px;
+}
+
+.comment-username{
+    background-color: #be9f61;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 15px;
+    min-width: fit-content;
+    color:white;
+}
+
+.flex-container > div > button{
+    min-width: 60vw;
+    margin-bottom: 50px;
+}
+.flex-container>button{
+    min-width: 50vw;
+}
+
+.card >h3{
+    text-align: center;
+}
+
+.comment-label{
+    text-align: center;
+}
+
+#comment-body{
+    width:50vw;
+    min-width:50vw;
 }
