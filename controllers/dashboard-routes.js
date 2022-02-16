@@ -1,40 +1,61 @@
 const router = require('express').Router()
-const {Post,User} = require('../models')
+const {Post, User, Comment} = require('../models')
 const withAuth = require('../middleware/auth')
 
-router.get('/',withAuth,async (req,res)=>{
+router.get('/', withAuth, async (req, res) => {
     const document = await Post.findAll({
-        where:{
+        where: {
             user_id: req.session.user_id
         },
         order: [['created_at', 'DESC']],
-        include:{
-            model:User,
+        include: {
+            model: User,
         }
     })
 
-    const posts = document.map(post => post.get({ plain: true }));
+    const posts = document.map(post => post.get({plain: true}));
 
-    res.render('dashboard',{posts,isLoggedIn:true,userName:req.session.username})
+    res.render('dashboard', {posts, isLoggedIn: true, userName: req.session.username})
 })
 
-router.get('/new-post',withAuth,async (req,res)=>{
-    res.render('new-post',{isLoggedIn:true,userName:req.session.username})
+router.get('/new-post', withAuth, async (req, res) => {
+    res.render('new-post', {isLoggedIn: true, userName: req.session.username})
 })
 
-//TODO
-router.get('/edit-post/:id',withAuth,async (req,res)=>{
 
-    const document = await Post.findAll({
-        where:{
-            user_id: req.session.user_id
+router.get('/edit/:id', withAuth, async (req, res) => {
+try{
+
+
+    const document = await Post.findOne({
+        where: {
+            user_id: req.session.user_id,
+            id: req.params.id
         },
-        order: [['created_at', 'DESC']],
+        include: [
+            {
+                model: Comment,
+                include: {
+                    model: User
+                }
+            },
+            {
+                model: User
+            }
+        ]
     })
 
-    const posts = document.map(post => post.get({ plain: true }));
+    if(!document){
+        return res.redirect('/dashboard')
+    }
 
-    res.render('dashboard',{posts,isLoggedIn:true,userName:req.session.username})
+    const posts = document.get({plain: true});
+
+    res.render('edit-post', {posts, isLoggedIn: true, userName: req.session.username})
+}catch (e) {
+    alert(e)
+    return res.status(500)
+}
 })
 
 module.exports = router
