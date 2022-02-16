@@ -99,3 +99,7 @@ body> div{
     min-width: 50vw;
 }
 
+#submit-new-post-btn{
+    min-width: 50vw;
+    margin-bottom: 15px;
+}

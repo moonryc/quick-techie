@@ -4,7 +4,7 @@
 const newPostHandler = async (event) => {
   event.preventDefault()
 
-  const title = document.getElementById("text-title").value.trim()
+  const title = document.getElementById("edit-title").value.trim()
   const body = document.getElementById("text-body").value.trim()
 
   const response = await fetch('/api/posts',{
