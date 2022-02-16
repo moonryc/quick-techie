@@ -1,0 +1,16 @@
+<h2>DASHBOARD</h2>
+
+
+<a href="/dashboard/new-post">
+    <div class="control">
+        <button class="button is-link">NEW POST</button>
+    </div>
+</a>
+<ol class="flex-container">
+{{#each posts as |post|}}
+    {{logger post}}
+    <li class="post-info">
+        {{> post-info post}}
+    </li>
+{{/each}}
+</ol>

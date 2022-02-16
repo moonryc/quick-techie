@@ -1,0 +1,21 @@
+<div id="modal-js-example" class="modal">
+    <div class="modal-background"></div>
+
+    <div class="modal-content">
+        <div class="box">
+            <p>Notification</p>
+            <!-- Your content -->
+        <div>
+            {{#if isLoggedIn}}
+                Your session will be timed-out in
+            {{else}}
+                <div>If you would like to make a comment or a post please make an account :D </div>
+            {{/if}}
+            <span id="time-left"></span>
+        </div>
+        </div>
+    </div>
+
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+<script src="/javascript/modal-notification.js"></script>
