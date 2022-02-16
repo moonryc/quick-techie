@@ -1,1 +1,48 @@
-<div>EDIT POST</div>
+<div class="flex-container">
+
+    <div class="control">
+        <button class="button is-link">UPDATE</button>
+    </div>
+
+
+    <div class="control">
+        <button class="button is-link">DELETE</button>
+    </div>
+</div>
+
+
+<div class="flex-container">
+    <div class="post-info">
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    <label for="text-body" class="label"></label>
+                    <textarea id="text-body" class="textarea has-fixed-size" placeholder="Textarea">{{capitalize_sentences posts.title}}</textarea>
+                    <br/>
+                    by {{capitalize_sentences posts.user.username}}
+                    <br/>
+                    {{format_date posts.createdAt}}
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    <div class="control">
+                        <label for="text-body" class="label"></label>
+                        <textarea id="text-body" class="textarea has-fixed-size" placeholder="Textarea">{{posts.body}}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer"></div>
+            <h3>COMMENTS</h3>
+            {{#if isLoggedIn}}
+                {{> add-comment}}
+            {{/if}}
+            <div class="comments-container">
+                {{#each posts.comments as |comment|}}
+                    {{logger comment}}
+                    {{> display-comment comment}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
