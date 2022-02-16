@@ -28,4 +28,8 @@ const signupHandler = async (event) => {
 
 document.querySelector('.signup-form').addEventListener('submit', signupHandler)
 
+document.querySelector('.login-btn').addEventListener('click', ()=>{
+    document.location.replace('/login')
+})
+
 
