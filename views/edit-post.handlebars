@@ -1,13 +1,13 @@
 <div class="flex-container">
-
+<div class="field is-grouped update-delete-btn">
     <div class="control">
-        <button class="button is-link">UPDATE</button>
+        <button class="button is-link" id="update-btn">UPDATE</button>
     </div>
 
-
     <div class="control">
-        <button class="button is-link">DELETE</button>
+        <button class="button is-link" id="delete-btn">DELETE</button>
     </div>
+</div>
 </div>
 
 
@@ -15,17 +15,14 @@
     <div class="post-info">
         <div class="card">
             <header class="card-header">
-                <p class="card-header-title">
-                    <label for="text-body" class="label"></label>
-                    <textarea id="text-body" class="textarea has-fixed-size" placeholder="Textarea">{{capitalize_sentences posts.title}}</textarea>
+                <p class="card-header-title flex-container">
+                    <label for="edit-title" class="label">Title: </label>
+                    <textarea id="edit-title" class="textarea has-fixed-size" placeholder="Textarea">{{capitalize_sentences posts.title}}</textarea>
                     <br/>
-                    by {{capitalize_sentences posts.user.username}}
-                    <br/>
-                    {{format_date posts.createdAt}}
                 </p>
             </header>
             <div class="card-content">
-                <div class="content">
+                <div class="content flex-container">
                     <div class="control">
                         <label for="text-body" class="label"></label>
                         <textarea id="text-body" class="textarea has-fixed-size" placeholder="Textarea">{{posts.body}}</textarea>
@@ -46,3 +43,5 @@
         </div>
     </div>
 </div>
+
+<script src="/javascript/edit-post.js"></script>

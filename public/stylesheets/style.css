@@ -28,6 +28,25 @@ body> div{
     margin-bottom:50px;
 }
 
+#edit-title{
+    width:30vw;
+    min-width:30vw;
+    height: auto;
+    min-height: auto;
+    margin-left: 5px;
+}
+
+#text-body{
+    width: 50vw;
+    min-width: 50vw;
+}
+
+.update-delete-btn >.control >button{
+    min-width: calc( 30vw - 6px);
+    margin-bottom: 10px;
+
+}
+
 .card{
     /*background-color: #c0a061 !important;*/
 }
@@ -59,14 +78,6 @@ body> div{
     color:white;
 }
 
-.flex-container > div > button{
-    min-width: 60vw;
-    margin-bottom: 50px;
-}
-.flex-container>button{
-    min-width: 50vw;
-}
-
 .card >h3{
     text-align: center;
 }
@@ -79,3 +90,12 @@ body> div{
     width:50vw;
     min-width:50vw;
 }
+
+.flex-container > div > button{
+    min-width: 60vw;
+    margin-bottom: 50px;
+}
+.flex-container>button{
+    min-width: 50vw;
+}
+

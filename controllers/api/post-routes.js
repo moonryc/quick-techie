@@ -69,5 +69,34 @@ router.post('/',withAuth,async (req, res) => {
 
 });
 
+//UPDATE POST
+router.put('/:id',withAuth, async (req,res)=>{
+
+    try{
+        const document = await Post.update(
+            {
+                title:req.body.title,
+                body:req.body.body
+            },
+            {
+                where:{
+                    id: req.params.id,
+                    user_id:req.session.user_id
+                },
+            })
+
+        if(!document){
+            return res.status(404).json({message:"No post with this id was found"})
+        }
+
+        console.log(document)
+
+        return res.json(document)
+
+    }catch (e) {
+        res.status(500).json(e)
+    }
+
+})
 
 module.exports = router
