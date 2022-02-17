@@ -5,7 +5,6 @@ const Sequelize = require('sequelize')
 let sequelize;
 
 //create connection to the db
-
 if(process.env.JAWSDB_URL){
     console.log('using jaws')
     sequelize = new Sequelize(process.env.JAWSDB_URL)
@@ -16,7 +15,7 @@ if(process.env.JAWSDB_URL){
         host: "localhost",
         dialect: "mysql",
         port: 3306,
-        logging:false
+        // logging:false
     })
 }
 

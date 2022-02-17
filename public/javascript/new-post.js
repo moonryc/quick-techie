@@ -7,6 +7,10 @@ const newPostHandler = async (event) => {
   const title = document.getElementById("edit-title").value.trim()
   const body = document.getElementById("text-body").value.trim()
 
+  if(!body || !title){
+    return alert("Tile or body are blank, this is not allowed")
+  }
+
   const response = await fetch('/api/posts',{
     method:"POST",
     body:JSON.stringify({title,body}),

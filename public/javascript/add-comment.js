@@ -5,6 +5,9 @@ const addCommentHandler = async (event) => {
   const locationArray = window.location.href.split('/')
   const post_id = locationArray[locationArray.length-1]
 
+  if(!comment_text){
+    return alert('Empty comments are not allowed')
+  }
 
   const response = await fetch('/api/comments',{
     method:'POST',

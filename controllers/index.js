@@ -7,6 +7,7 @@ router.use('/',homeRoutes)
 router.use('/dashboard', dashboardRoutes);
 router.use('/api',apiRoutes)
 
+//ERROR HANDLER
 router.use((req, res) => {
     console.log("==========================================")
     console.log("ERROR HANDLER")

@@ -3,6 +3,7 @@ let isModalOpen = false
 
 const timerInterval = setInterval(()=>{
     if(timer<= 0){
+        updateTimeRemaining(timer)
         clearInterval(timerInterval)
     }else if(timer === 2*60){
         updateTimeRemaining(timer)

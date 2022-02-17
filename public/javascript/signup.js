@@ -7,8 +7,18 @@ const signupHandler = async (event) => {
     const password = document.getElementById('password-signup').value.trim()
 
     if(!email || !password || !username){
-        return
+        return alert("username/password/email are blank, this is not allowed")
     }
+
+    if(password.length>10 || username.length >10){
+        return alert("username or password cannot be greater that 10 characters")
+    }
+
+    if(email.length>20){
+        return alert("email cannot be greater than 20 characters")
+    }
+
+
 
     const response = await fetch('/api/users',
         {

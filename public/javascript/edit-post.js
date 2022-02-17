@@ -6,6 +6,10 @@ const editPostHandler = async (event) => {
   const title = document.getElementById('edit-title').value.trim()
   const body = document.getElementById('text-body').value.trim()
 
+  if(!title || !body){
+    return alert("title or body are blank, this is not allowed")
+  }
+
   try{
 
     const response = await fetch(`/api/posts/${id}`, {
