@@ -6,16 +6,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
           referrerpolicy="no-referrer"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Just Tech News</title>
 </head>
 <body>
 <div class="sticky">
     <header>
-
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
-                    <h1>
+                    <h1 class="title is-2">
                         Quick-techie
                     </h1>
                 </a>
@@ -61,9 +61,10 @@
 </main>
 {{>modal-notification}}
 
+</body>
 {{#if isLoggedIn}}
     <script src="/javascript/logout.js"></script>
 {{/if}}
-</body>
+    <script src="/javascript/navbar.js"></script>
 
 </html>

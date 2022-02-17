@@ -23,7 +23,6 @@
             {{/if}}
             <div class="comments-container">
                 {{#each postsData.comments as |comment|}}
-                    {{logger comment}}
                     {{> display-comment comment}}
                 {{/each}}
             </div>

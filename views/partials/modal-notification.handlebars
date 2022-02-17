@@ -8,10 +8,11 @@
         <div>
             {{#if isLoggedIn}}
                 Your session will be timed-out in
+            <span id="time-left"></span>
             {{else}}
                 <div>If you would like to make a comment or a post please make an account :D </div>
+            <span id="time-left" style="color: transparent"></span>
             {{/if}}
-            <span id="time-left"></span>
         </div>
         </div>
     </div>

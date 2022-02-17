@@ -1,6 +1,16 @@
+
 <div class="comment">
-<div class="card-footer">
-    <p class="comment-username"> {{capitalize_sentences user.username}} </p> <span>&nbsp{{format_date createdAt}}</span>
+    <div class="card-footer">
+        <p class="comment-username"> {{capitalize_sentences user.username}} </p>
+        <span>&nbsp{{format_date createdAt}}
+        {{#if isEditing}}
+            <i id="delete-comment-btn" data-comment-id={{id}} class="fa-solid fa-trash"></i>
+        {{/if}}
+            </span>
+    </div>
+    <p>{{comment_text}}</p>
 </div>
-<p>{{comment_text}}</p>
-</div>
+
+{{#if isEditing}}
+    <script src="/javascript/delete-comment.js"></script>
+{{/if}}

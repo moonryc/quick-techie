@@ -36,8 +36,7 @@
             {{/if}}
             <div class="comments-container">
                 {{#each posts.comments as |comment|}}
-                    {{logger comment}}
-                    {{> display-comment comment}}
+                    {{> display-comment comment isEditing=true}}
                 {{/each}}
             </div>
         </div>
