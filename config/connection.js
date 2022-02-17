@@ -7,7 +7,9 @@ let sequelize;
 //create connection to the db
 if(process.env.JAWSDB_URL){
     console.log('using jaws')
-    sequelize = new Sequelize(process.env.JAWSDB_URL)
+    sequelize = new Sequelize(process.env.JAWSDB_URL,{
+        logging:false
+    })
 }else{
     console.log('using local')
     console.log(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW)
