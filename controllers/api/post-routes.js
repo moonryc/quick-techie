@@ -100,7 +100,7 @@ router.put('/:id',withAuth, async (req,res)=>{
 })
 
 
-//UPDATE POST
+//DELETE POST
 router.delete('/:id',withAuth, async (req,res)=>{
 
     try{

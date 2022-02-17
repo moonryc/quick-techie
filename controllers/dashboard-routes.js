@@ -2,6 +2,7 @@ const router = require('express').Router()
 const {Post, User, Comment} = require('../models')
 const withAuth = require('../middleware/auth')
 
+//DASHBOARD PAGE
 router.get('/', withAuth, async (req, res) => {
     const document = await Post.findAll({
         where: {
@@ -10,6 +11,7 @@ router.get('/', withAuth, async (req, res) => {
         order: [['created_at', 'DESC']],
         include: {
             model: User,
+            attributes:['username']
         }
     })
 
@@ -18,15 +20,14 @@ router.get('/', withAuth, async (req, res) => {
     res.render('dashboard', {posts, isLoggedIn: true, userName: req.session.username})
 })
 
+//NEW POST PAGE
 router.get('/new-post', withAuth, async (req, res) => {
     res.render('new-post', {isLoggedIn: true, userName: req.session.username})
 })
 
-
+//EDIT SINGLE POST PAGE
 router.get('/edit/:id', withAuth, async (req, res) => {
 try{
-
-
     const document = await Post.findOne({
         where: {
             user_id: req.session.user_id,
@@ -35,12 +36,15 @@ try{
         include: [
             {
                 model: Comment,
+                attributes:['id','comment_text','createdAt'],
                 include: {
-                    model: User
+                    model: User,
+                    attributes:['username']
                 }
             },
             {
-                model: User
+                model: User,
+                attributes:['username']
             }
         ]
     })
