@@ -38,12 +38,15 @@ To complete setup open your mySQL terminal and run ```$ source db/schema.sql```.
 
 ## Usage
 
-To use this application you have a few options. [seed](#seeding) the database before starting the application or
-starting the application [without seeding](#Without seeding)
+To use this application you have a few options. 
+
+Option 1) [Seeding](#seeding) the database and then starting the application
+
+Option 2) [Stating the app without seeding](#without-seeding)
 
 ### Seeding
 
-Step 1) If you wish to seed first the first thing that you must do after following the instructions above is to
+Step 1) If you wish to seed the database with dummy data the first thing that you must do after following the instructions above is to
 run ```npm seed```. This will seed the database with demo data. **CAUTION DOING SO WILL DROP ALL TABLES RELEVANT TO THIS
 DATABASE**
 
