@@ -44,6 +44,10 @@ Option 1) [Seeding](#seeding) the database and then starting the application
 
 Option 2) [Stating the app without seeding](#without-seeding)
 
+Option 3) Click [here]('https://quick-techie.herokuapp.com') to see a deployed version of the website
+
+<img src="./public/images/Quick-techie.jpg" alt="Homepage of Quick-techie">
+
 ### Seeding
 
 Step 1) If you wish to seed the database with dummy data the first thing that you must do after following the instructions above is to
