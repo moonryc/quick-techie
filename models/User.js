@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 
 class User extends Model {
     async isPasswordValid(submittedPassword) {
-        return await bcrypt.hash(submittedPassword, this.password)
+        return await bcrypt.compare(submittedPassword, this.password)
     }
 }
 
