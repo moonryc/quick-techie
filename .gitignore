@@ -2,7 +2,8 @@
 ### Example user template
 
 .vscode
-.DS_Store
+.
+yarn.lock
 
 # IntelliJ project files
 .idea
